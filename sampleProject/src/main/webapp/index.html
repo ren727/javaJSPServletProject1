@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+  <title>Animated Drop-Down Form</title>
+  <style>
+         body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+        }
+
+         .slide img {
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            max-height: 400px; /* Set your desired maximum height */
+        }
+        /* Add animation for fading */
+        .fade {
+            animation-name: fade;
+            animation-duration: 5s; /* Adjust the duration as needed */
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Add styles for the form */
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .go-back-button {
+    display: block;
+    margin: 0 auto; 
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #3eb3f2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+     width: 300px; 
+   
+    
+    text-decoration: center;
+}
+
+.go-back-button:hover {
+    background-color: #1f1bfc;
+}
+    </style>
+</head>
+<body>
+  <div class="banner-container">
+    <img src="AdoptAnimal5.png" alt="Banner Image" class="banner-image">
+   </div>  
+   <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="animalImg/animalImage1.jpg" alt="Animal1">
+        </div>
+        <div class="slide fade">
+            <img src="animalImg/animalImage2.jpg" alt="Animal2">
+        </div>
+        <div class="slide fade">
+            <img src="animalImg/animalImage3.jpg" alt="Animal3">
+        </div>
+        <div class="slide fade">
+            <img src="animalImg/animalImage4.jpg" alt="Animal4">
+        </div>
+        <div class="slide fade">
+            <img src="animalImg/animalImage5.jpg" alt="Animal5">
+        </div>
+        <div class="slide fade">
+            <img src="animalImg/animalImage6.jpg" alt="Animal6">
+        </div>
+        <div class="slide fade">
+            <img src="animalImg/animalImage7.jpg" alt="Animal7">
+        </div>
+        <div class="slide fade">
+            <img src="animalImg/animalImage8.jpg" alt="Animal8">
+        </div>
+        <!-- Add more slides with different animal images -->
+    </div>
+    <script>
+        // JavaScript for automatic slideshow
+        let slideIndex = 
+        0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = 'block';
+            setTimeout(showSlides, 2000); // Change image every 5 seconds (adjust as needed)
+        }
+    </script>
+    <a href="ReadUsers" class="button go-back-button" >List Your Own Pets</a>
+  <div class="dropholder">
+    <p>Select</p>
+     
+
+    <div class="dropdown">
+      <p><i class="fa fa-foursquare"></i> Favorite Pet？</p>
+    </div>
+    <ul class="menu">
+      <li><i class="fa fa-thumbs-down"></i>Dog</li>
+      <li><i class="fa fa-thumbs-up"></i>Cat</li>
+      <li><i class="fa fa-bolt"></i>Bird</li>
+      <li><i class="fa fa-star"></i>Hamster</li>
+      <li><i class="fa fa-heart"></i>Rabbit</li>
+    </ul>
+  </div>
+  <div class="message-container"></div>
+  
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Cat Page</title>
+  <style>
+    /* Add your existing CSS styles from styles.css here */
+
+    body{
+    background:radial-gradient(#c876fe, #8c38c5);
+    background-size:4px 4px;
+    perspective: 400px;
+    width: 100%;
+    height: 600px;
+  }
+
+  .dog{
+    background:radial-gradient(#e392c0, #9b4ecf);
+    background-size:4px 4px;
+    perspective: 400px;
+    width: 100%;
+    height: 600px;
+    
+  }
+  .dropholder{
+    width: 322px;
+    height: 60px;
+    margin:200px auto;
+    padding:0 0 0 20px;
+    border-radius:10px;
+    font:18px arial;
+    color: #fff;
+    position: relative;
+    box-sizing:border-box;
+    border:1px solid #9b0db9;
+    animation: move 3s ease-in-out infinite;
+    position: relative;
+  }
+  .dropholder:hover, .dropholder:hover:after{
+    animation-play-state:paused;
+  }
+  .dropholder:after{
+    content:"";
+    position: absolute;
+    width: 250px;
+    height: 5px;
+    background:rgba(0,0,0, 0);
+    display: block;
+    top:100px;
+    left:37px;
+    margin: auto;
+    border-radius:50%;
+    box-shadow:0 15px 10px rgba(0,0,0, 0.4);
+    animation: moveShadow 3s ease-in-out infinite;
+  }
+  p{
+    float: left;
+    line-height:60px;
+  }
+  .dropdown > p{
+    font-size:16px;
+  }
+  .dropdown, .dropholder{
+    background:linear-gradient(#da4df8 ,#9b0db9);
+  }
+  .dropdown{
+    margin-left:20px;
+    float: left;
+    width: 208px;
+    padding:0 0 0 20px;
+    border-radius:0 10px 10px 0;
+    cursor: pointer;
+    height:58px;
+    border-left:1px solid #da4df8;
+    position: relative;
+  }
+  .dropdown:hover{
+    background:linear-gradient(#da4df8 ,#b11cd0);
+  }
+  .dropdown:after{
+    content:"▾";
+    font-size: 18px;
+    position: absolute;
+    right:20px;
+    top:18px;
+    display: block;
+  }
+  
+  .menu{
+    position: absolute;
+    right:0;
+    top:70px;
+    width: 228px;
+    cursor: pointer;
+    opacity:0;
+    transform-style: preserve-3d;
+    transform:rotatey(180deg) rotateX(5deg) translatey(100px);
+    backface-visibility: hidden;
+    background:linear-gradient(#4dc2f8 ,#0d82b9);
+    border:2px solid #0d82b9;
+    border-radius:10px;
+    transition:all 0.8s;
+    z-index:5;
+    overflow:hidden;
+  }
+  .menu li{
+    padding: 10px 10px;
+    border-bottom:1px dotted #fff;
+    color:#e8f8ff; 
+    transition:all 0.3s;
+  }
+  .menu li:hover{
+    background:#61ccfd;
+    padding-left:20px;
+  }
+  .menu li:last-child{
+    border:none;
+  }
+  
+  .showMenu{
+     opacity:1;
+    transform:rotateX(0deg) translatey(0px);
+  }
+  li > i{
+    float: left;
+    padding-top: 3px;
+    padding-right: 8px;
+  }
+  p > i{
+   position: relative;
+   top:2px;
+  }
+  i{
+    opacity: 0.7;
+  }
+  @keyframes move{
+    0%, 100%{transform:translateY(-10px);}
+    50%{transform:translateY(0);}
+  }
+  
+  @keyframes moveShadow{
+    0%,100%{transform:translateY(10px);opacity:0.4;}
+    50%{transform:translateY(0);opacity:1;}
+  }
+
+  /* Add this to your existing CSS */
+/* Existing CSS */
+
+/* Add this to your existing CSS */
+/* Existing CSS */
+
+/* Add this to your existing CSS */
+/* Existing CSS */
+
+/* Add this to your existing CSS */
+/* Existing CSS */
+
+/* Add this to your existing CSS */
+.message-container {
+  position: relative;
+  width: 228px;
+  margin: 20px auto; /* Center the message container horizontally */
+  background: linear-gradient(#4dc2f8, #0d82b9);
+  border: 2px solid transparent; /* Set border to transparent */
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 5;
+  opacity: 1;
+  transform: translateY(-50px); /* Move the message container up */
+  transition: all 0.8s;
+}
+
+.message {
+  padding: 10px;
+  color: #e8f8ff;
+  text-align: center;
+  font-size: 22px; /* You can adjust the font size as needed */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Add this for the rotation animation when hiding */
+.message.hide-rotate {
+  animation: rotateOut 0.8s ease-in-out forwards;
+}
+
+/* Animation keyframes for rotation */
+@keyframes rotateOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg); /* Initial rotation is 0 degrees */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(360deg); /* Rotate 360 degrees when hiding */
+  }
+}
+
+
+@keyframes moveMessageOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0); /* Initial rotation is 0 degrees */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(360deg); /* Rotate 360 degrees when hiding */
+  }
+}
+
+/* Apply the moveMessageOut animation to the .message class when hiding */
+.message.hide {
+  animation: moveMessageOut 0.8s ease-in-out forwards;
+}
+
+
+/* Adjust the animation for smoother appearance/disappearance */
+@keyframes moveMessageIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add this CSS to style the "Learn More" button */
+.message button {
+  background: linear-gradient(#4dc2f8, #0d82b9);
+  border: 2px solid #0d82b9;
+  border-radius: 10px;
+  color: #e8f8ff;
+  padding: 5px 10px;
+  margin-top: 10px; /* Adjust the margin as needed to separate the button from the message */
+  cursor: pointer;
+  font-size: 16px; /* You can adjust the font size as needed */
+  font-family: 'Courier New', Courier, monospace; /* Match the font family if necessary */
+}
+
+.message button:hover {
+  background: #61ccfd;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* Style for the "Learn More" button */
+.learn-more-button {
+  background: linear-gradient(#4dc2f8, #0d82b9);
+  color: #e8f8ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.learn-more-button:hover {
+  background: linear-gradient(#0d82b9, #4dc2f8);
+  color: #ffffff;
+}
+
+/* Additional styles for the message container */
+.message-container {
+  position: relative;
+  width: 228px;
+  margin: 20px auto; /* Center the message container horizontally */
+  background: linear-gradient(#4dc2f8, #0d82b9);
+  border: 2px solid transparent; /* Set border to transparent */
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 5;
+  opacity: 1;
+  transform: translateY(-50px); /* Move the message container up */
+  transition: all 0.8s;
+}
+
+.message {
+  padding: 10px;
+  color: #e8f8ff;
+  text-align: center;
+  font-size: 22px; /* You can adjust the font size as needed */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Add this for the rotation animation when hiding */
+.message.hide-rotate {
+  animation: rotateOut 0.8s ease-in-out forwards;
+}
+
+/* Animation keyframes for rotation */
+@keyframes rotateOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg); /* Initial rotation is 0 degrees */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(360deg); /* Rotate 360 degrees when hiding */
+  }
+}
+
+@keyframes moveMessageOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0); /* Initial rotation is 0 degrees */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(360deg); /* Rotate 360 degrees when hiding */
+  }
+}
+
+/* Apply the moveMessageOut animation to the .message class when hiding */
+.message.hide {
+  animation: moveMessageOut 0.8s ease-in-out forwards;
+}
+
+/* Adjust the animation for smoother appearance/disappearance */
+@keyframes moveMessageIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    /* Style for the banner container */
+    .banner-container {
+  align-items: center; /* Center vertically */
+  margin: auto;
+  width: 770px;
+  background-color: #3eb3f2;
+ 
+}
+
+/* Style for the banner image */
+.banner-image {
+  width: 80%;
+  height: 80%;
+  max-height: 80vh; /* Adjust the max height as needed */
+  align-items: center; /* Center vertically */
+  margin: auto;
+}
+
+    /* Style for the form and headings */
+    .dogPage1 {
+      font-size: 24px; /* Adjust the font size as needed */
+      color: #fff; /* Text color */
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Style for the select element */
+    select {
+      font-size: 18px; /* Adjust the font size as needed */
+      padding: 10px;
+      border: 2px solid #9b0db9;
+      border-radius: 10px;
+      background: linear-gradient(#da4df8, #9b0db9);
+      color: #fff;
+      margin-top: 10px;
+      display: block; /* Ensure the select element takes full width */
+      margin: 0 auto; /* Center the select element horizontally */
+    }
+
+    /* Style for the submit button */
+    input[type="submit"] {
+      font-size: 18px; /* Adjust the font size as needed */
+      padding: 10px 20px;
+      background: linear-gradient(#4dc2f8, #0d82b9);
+      color: #e8f8ff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: block; /* Ensure the submit button takes full width */
+      margin: 0 auto; /* Center the submit button horizontally */
+    }
+    
+    .image-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.slides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Make the slides horizontally scrollable */
+}
+
+.slides li {
+  flex: 0 0 200px; /* Each slide takes the width of your choice */
+  max-width: 100%; /* Ensure the slides don't exceed the container width */
+  animation: slide 10s linear infinite; /* Adjust the duration as needed */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* Slides move to the left */
+  }
+}
+.slides img {
+  max-width: 200px; /* Set your desired maximum width */
+  max-height: 150px; /* Set your desired maximum height */
+  width: auto;
+  height: auto;
+}
+
+
+  </style>
+</head>
+<body class="dog">
+  <!-- Banner Container -->
+  <div class="banner-container">
+    <!-- Banner Image -->
+    <img src="CatBanner.png" alt="Banner Image" class="banner-image">
+  </div>
+  
+  <div class="image-slider">
+  <ul class="slides">
+    <li><img src="catImg/catImage1.jpg" alt="Cat 1"></li>
+    <li><img src="catImg/catImage2.jpg" alt="Cat 2"></li>
+    <li><img src="catImg/catImage3.jpg" alt="Cat 3"></li>
+    <li><img src="catImg/catImage4.jpg" alt="Cat 4"></li>
+    <li><img src="catImg/catImage5.jpg" alt="Cat 5"></li>
+    <li><img src="catImg/catImage6.jpg" alt="Cat 6"></li>
+    <li><img src="catImg/catImage7.jpg" alt="Cat 7"></li>
+    <li><img src="catImg/catImage8.jpg" alt="Cat 8"></li>
+    <!-- Add more images as needed -->
+  </ul>
+</div>
+
+  <!-- Your existing content goes here -->
+  <h2 class="dogPage1">Select the Size of the Cat</h2>
+  <form action="showAnimal" method="POST">
+    <input type="hidden" name="type" value="cat"> <!-- Hidden input for 'type' -->
+    <label for="animalNo"></label>
+    <select name="animalNo">
+      <option value="large">Large</option>
+      <option value="small">Small</option>
+    </select>
+    <br/><br/>
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>
